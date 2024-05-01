@@ -1,0 +1,87 @@
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: local('Neue Haas Unica Medium'), local('Neue-Haas-Unica-Medium'),
+    url('NeueHaasUnica-Medium.woff2') format('woff2'),
+    url('NeueHaasUnica-Medium.woff') format('woff'),
+    url('NeueHaasUnica-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Neue Haas Unica';
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: transparent;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  /* Adiciona transição suave */
+}
+
+.logo {
+  float: left;
+  margin: 10px;
+}
+
+.logo img {
+  height: 50px;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+}
+
+.container .banner {
+  background-image: url(../assets/imgs/kanye.png);
+  background-repeat: no-repeat;
+  background-size: 94rem;
+  background-position: -86px -27px;
+  width: 100%;
+  height: 646px;
+
+  position: absolute;
+  z-index: 1;
+}
+
+.container .titulo {
+  position: absolute;
+  z-index: 0;
+  height: 646px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titulo h1 {
+  margin: 0;
+  font-size: 250px;
+}
+
+.sobre {
+  height: 646px;
+}
