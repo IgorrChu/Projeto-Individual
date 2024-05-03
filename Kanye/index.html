@@ -84,7 +84,7 @@
             <div class="audioPlayer">
               <p>Minha musica favorita do Album:</p>
               <div class="musica">
-                <p><b>Jesus Walks</b></p>
+                <p><b>Jesus Walks ⭐</b></p>
                 <audio controls="" style="width: 500px;">
                   <source src="./assets/audio/JesusWalks.mp3" type="audio/mpeg">
                 </audio>
@@ -106,7 +106,7 @@
             <div class="audioPlayer">
               <p>Minha musica favorita do Album:</p>
               <div class="musica">
-                <p><b>Addiction</b></p>
+                <p><b>Addiction ⭐</b></p>
                 <audio controls="" style="width: 500px;">
                   <source src="./assets/audio/addiction.mp3" type="audio/mpeg">
                 </audio>
@@ -128,7 +128,7 @@
             <div class="audioPlayer">
               <p>Minha musica favorita do Album:</p>
               <div class="musica">
-                <p><b>Flashing Lights
+                <p><b>Flashing Lights ⭐
                   </b></p>
                 <audio controls="" style="width: 500px;">
                   <source src="./assets/audio/flashingLights.mp3" type="audio/mpeg">
@@ -152,7 +152,7 @@
             <div class="audioPlayer">
               <p>Minha musica favorita do Album:</p>
               <div class="musica">
-                <p><b>Paranoid
+                <p><b>Paranoid ⭐
                   </b></p>
                 <audio controls="" style="width: 500px;">
                   <source src="./assets/audio/Paranoid.mp3" type="audio/mpeg">
@@ -175,7 +175,7 @@
             <div class="audioPlayer">
               <p>Minha musica favorita do Album:</p>
               <div class="musica">
-                <p><b>Runaway
+                <p><b>Runaway ⭐
                   </b></p>
                 <audio controls="" style="width: 500px;">
                   <source src="./assets/audio/Runaway.mp3" type="audio/mpeg">
@@ -199,7 +199,7 @@
             <div class="audioPlayer">
               <p>Minha musica favorita do Album:</p>
               <div class="musica">
-                <p><b>New Slaves
+                <p><b>New Slaves ⭐
                   </b></p>
                 <audio controls="" style="width: 500px;">
                   <source src="./assets/audio/NewSlaves.mp3" type="audio/mpeg">
@@ -223,7 +223,7 @@
             <div class="audioPlayer">
               <p>Minha musica favorita do Album:</p>
               <div class="musica">
-                <p><b>Wolves
+                <p><b>Wolves ⭐
                   </b></p>
                 <audio controls="" style="width: 500px;">
                   <source src="./assets/audio/Wolves.mp3" type="audio/mpeg">
@@ -246,7 +246,7 @@
             <div class="audioPlayer">
               <p>Minha musica favorita do Album:</p>
               <div class="musica">
-                <p><b>Violent Crimes
+                <p><b>Violent Crimes ⭐
                   </b></p>
                 <audio controls="" style="width: 500px;">
                   <source src="./assets/audio/ViolentCrimes.mp3" type="audio/mpeg">
@@ -270,7 +270,7 @@
             <div class="audioPlayer">
               <p>Minha musica favorita do Album:</p>
               <div class="musica">
-                <p><b>God is
+                <p><b>God is ⭐
                   </b></p>
                 <audio controls="" style="width: 500px;">
                   <source src="./assets/audio/GodIs.mp3" type="audio/mpeg">
@@ -294,7 +294,7 @@
             <div class="audioPlayer">
               <p>Minha musica favorita do Album:</p>
               <div class="musica">
-                <p><b>Believe What i Say
+                <p><b>Believe What i Say ⭐
                   </b></p>
                 <audio controls="" style="width: 500px;">
                   <source src="./assets/audio/BelieveWhatISay.mp3" type="audio/mpeg">
@@ -365,6 +365,27 @@
     }
     mostrarSlide(slideAtual);
   });
+
+  // Função para animar a rolagem suave para uma âncora
+function scrollToAnchor(anchor) {
+  const offset = document.querySelector(anchor).offsetTop;
+
+  window.scroll({
+    top: offset,
+    behavior: 'smooth'
+  });
+}
+
+// Adicione um evento de clique para cada link do menu de navegação
+document.querySelectorAll('#navbar a').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault(); // Impede o comportamento padrão do link
+
+    const href = this.getAttribute('href'); // Obtém o valor do atributo href do link
+    scrollToAnchor(href); // Chama a função para rolar suavemente até a âncora correspondente
+  });
+});
+
 
 </script>
 
