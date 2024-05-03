@@ -344,9 +344,12 @@
   let slideAtual = 0; // Índice do slide atual (começa em 0)
 
   function mostrarSlide(indice) {
-    slides.forEach(slide => slide.style.display = 'none');
-    slides[indice].style.display = 'flex';
-  }
+  slides.forEach(slide => slide.style.display = 'none');
+  slides[indice].style.display = 'flex';
+  slides[indice].classList.remove('slide-animation');
+  void slides[indice].offsetWidth; // Forçar o reflow
+  slides[indice].classList.add('slide-animation');
+}
 
   mostrarSlide(slideAtual);
 
@@ -366,6 +369,9 @@
     mostrarSlide(slideAtual);
   });
 
+
+
+  
   // Função para animar a rolagem suave para uma âncora
 function scrollToAnchor(anchor) {
   const offset = document.querySelector(anchor).offsetTop;

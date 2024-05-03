@@ -143,8 +143,20 @@ nav .left .anchorNav {
   left: 0;
   width: 100%;
   transition: transform 0.5s ease;
+  animation: fadeInOut 0.5s ease-in-out forwards; /* Aplica a animação de desvanecimento */
+  }
   
-}
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0; /* Começa com opacidade 0 para desvanecer */
+    }
+    50% {
+      opacity: 1; /* Atinge opacidade máxima durante a animação */
+    }
+    100% {
+      opacity: 1; /* Retorna à opacidade 0 ao final da animação */
+    }
+  }
 
 .slide img {
   width: 465px;
