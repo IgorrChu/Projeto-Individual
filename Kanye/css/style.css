@@ -8,10 +8,13 @@
   font-style: normal;
 }
 
+
+
 body {
   font-family: 'Neue Haas Unica';
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 header {
@@ -37,7 +40,7 @@ nav {
   width: 100%;
   display: flex;
   align-items: center;
-
+  justify-content: space-between;
 }
 
 nav ul {
@@ -54,6 +57,15 @@ nav li {
 nav a {
   text-decoration: none;
   color: #000;
+}
+
+nav .left {
+  display: flex;
+  align-items: center;
+}
+
+nav .left .anchorNav {
+  width: 345px;
 }
 
 .container .banner {
@@ -84,4 +96,115 @@ nav a {
 
 .sobre {
   height: 646px;
+}
+
+.sobre2 {
+  height: 405px;
+  padding-top: 220px;
+}
+
+.sobre2 .box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.sobre2 .box .sobreTexto {
+  width: 550px;
+}
+
+.projetos {}
+
+.projetos .box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.projetos .box h1 {
+  margin: 0;
+  font-size: 180px;
+}
+
+/* carrossel */
+
+.carrossel {
+  width: 92%;
+  height: 470px;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: transform 0.5s ease;
+  
+}
+
+.slide img {
+  width: 465px;
+  height: 465px;
+  margin-right: 20px;
+  border-radius: 15px;
+}
+
+.projetos .box .slide .conteudo .textos h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.slide p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.anterior{
+  background-image: url(../assets/imgs/iconAnt.png);
+  background-repeat: no-repeat;
+  background-size: 35px;
+  background-position: 4px;
+}
+.proximo {
+  background-image: url(../assets/imgs/iconProx.png);
+  background-repeat: no-repeat;
+  background-size: 35px;
+  background-position: 10px;
+}
+
+.anterior,
+.proximo {
+  opacity: 0.7;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.anterior {
+  left: 20px;
+}
+
+.proximo {
+  right: 20px;
+}
+
+.textos {
+  display: flex;
+  flex-direction: column;
+  width: 660px;
+}
+
+.musica {
+  display: flex;
+  justify-content: space-around;
 }
