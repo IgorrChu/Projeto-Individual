@@ -220,3 +220,23 @@ nav .left .anchorNav {
   display: flex;
   justify-content: space-around;
 }
+
+
+.importancia{
+  height: 650px;
+}
+
+.importancia .box{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.importancia .box h1{
+  margin: 0;
+  font-size: 180px;
+}
+
+.importancia .box .conteudo{
+
+}
