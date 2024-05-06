@@ -232,8 +232,9 @@ nav .left .anchorNav {
   flex-direction: column;
 }
 
-.importancia .box h1{
+.importancia .box h1 {
   margin: 0;
+  letter-spacing: 2px;
   font-size: 180px;
 }
 
