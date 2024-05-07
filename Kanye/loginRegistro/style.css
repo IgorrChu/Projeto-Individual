@@ -20,18 +20,23 @@ body {
     justify-content: center;
 }
 
-.container {
+.login{
     height: 100vh;
     width: 90%;
+}
+
+.containerL {
+    height: 100vh;
+    width: 100%;
     display: flex;
     align-items: center;
 }
 
-.container .boxLogin .imgBack{
+.containerL .boxLogin .imgBack {
     width: 100%;
 }
 
-.container .boxLogin {
+.containerL .boxLogin {
     width: 400px;
     height: 440px;
     background-color: #FFF;
@@ -44,21 +49,21 @@ body {
     align-items: center;
 }
 
-.container .boxLogin .formsLogin {
+.containerL .boxLogin .formsLogin {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.container .boxLogin .formsLogin p {
+.containerL .boxLogin .formsLogin p {
     text-align: end;
     font-weight: bold;
     padding-right: 15px;
     margin: 10px;
 }
 
-.container .boxLogin .formsLogin input{
+.containerL .boxLogin .formsLogin input {
     width: 380px;
     height: 35px;
     border: 2px solid black;
@@ -68,7 +73,7 @@ body {
     text-align: end;
 }
 
-.container .boxLogin .formsLogin .btnsLogin {
+.containerL .boxLogin .formsLogin .btnsLogin {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -76,7 +81,7 @@ body {
     margin-top: 15px;
 }
 
-.container .boxLogin .formsLogin .btnsLogin button {
+.containerL .boxLogin .formsLogin .btnsLogin button {
     width: 180px;
     height: 45px;
     border: 2px solid black;
@@ -89,7 +94,8 @@ body {
     background-position: 150px;
     cursor: pointer;
 }
-.container .boxLogin .formsLogin .btnsLogin button:hover {
+
+.containerL .boxLogin .formsLogin .btnsLogin button:hover {
     border: 2px solid #FFF;
     background-color: black;
     background-image: url(./assets/imgs/entrar2.png);
@@ -99,9 +105,118 @@ body {
     transition: 0.8s;
 }
 
-.container .boxLogin .formsLogin .btnsLogin a{
+.containerL .boxLogin .formsLogin .btnsLogin a {
     text-decoration: none;
     color: black;
     font-weight: bold;
     padding-right: 22px;
+}
+
+.registro{
+    height: 100vh;
+    width: 90%;
+}
+
+.containerR {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.containerR .boxRegistro .imgBack {
+    width: 100%;
+}
+
+.containerR .boxRegistro {
+    width: 400px;
+    height: 440px;
+    background-color: #FFF;
+    border-radius: 15px;
+    padding: 10px;
+    margin: -10px;
+    border: 4px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerR .boxRegistro .formsRegistro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerR .boxRegistro .formsRegistro p {
+    font-weight: bold;
+    padding-left: 5px;
+    margin: 10px;
+}
+
+.containerR .boxRegistro .formsRegistro input {
+    width: 380px;
+    height: 35px;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding-right: 15px;
+    font-size: 18px;
+
+}
+
+.containerR .boxRegistro .formsRegistro .senhas .senha{
+    display: flex;
+    flex-direction: column;
+}
+
+.containerR .boxRegistro .formsRegistro .senhas{
+    display: flex;
+}
+.containerR .boxRegistro .formsRegistro .senhas input{
+    width: 170px;
+    height: 35px;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding-right: 15px;
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.containerR .boxRegistro .formsRegistro .btnsRegistro {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.containerR .boxRegistro .formsRegistro .btnsRegistro button {
+    width: 220px;
+    height: 45px;
+    border: 2px solid black;
+    border-radius: 25px;
+    background-color: #FFF;
+    font-size: 20px;
+    font-weight: bold;
+    background-image: url(./assets/imgs/entrar.png);
+    background-repeat: no-repeat;
+    background-position: 185px;
+    cursor: pointer;
+}
+
+.containerR .boxRegistro .formsRegistro .btnsRegistro button:hover {
+    border: 2px solid #FFF;
+    background-color: black;
+    background-image: url(./assets/imgs/entrar2.png);
+    background-repeat: no-repeat;
+    background-position: 185px;
+    color: white;
+    transition: 0.8s;
+}
+
+.containerR .boxRegistro .formsRegistro .btnsRegistro a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding-left: 17px;
 }
