@@ -28,7 +28,7 @@
       </div>
       <div class="right">
         <ul>
-          <li><a href="#">Login</a></li>
+          <li><a href="./loginRegistro/loginRegistro.html">Login</a></li>
           <li><a href="#">Registre-se</a></li>
         </ul>
       </div>
@@ -378,26 +378,23 @@
     mostrarSlide(slideAtual);
   });
 
+// Adicione este código JavaScript ao final do seu arquivo HTML, dentro da tag <script>
+  document.addEventListener("DOMContentLoaded", function() {
+  const links = document.querySelectorAll('.anchorNav ul li a');
 
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
 
-  
-  // Função para animar a rolagem suave para uma âncora
-function scrollToAnchor(anchor) {
-  const offset = document.querySelector(anchor).offsetTop;
+      const targetId = this.getAttribute('href').substring(1); // Obter o ID da seção de destino, excluindo o '#'
+      const targetSection = document.getElementById(targetId);
+      const offsetTop = targetSection.offsetTop; // Obter o deslocamento vertical da seção de destino
 
-  window.scroll({
-    top: offset,
-    behavior: 'smooth'
-  });
-}
-
-// Adicione um evento de clique para cada link do menu de navegação
-document.querySelectorAll('#navbar a').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault(); // Impede o comportamento padrão do link
-
-    const href = this.getAttribute('href'); // Obtém o valor do atributo href do link
-    scrollToAnchor(href); // Chama a função para rolar suavemente até a âncora correspondente
+      window.scroll({
+        top: offsetTop,
+        behavior: 'smooth' // Rolagem suave
+      });
+    });
   });
 });
 
