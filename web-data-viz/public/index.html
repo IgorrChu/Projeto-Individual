@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YE</title>
+  <link rel="shortcut icon" href="./yeezy/assets/imgs/yzyIcon.png" type="image/x-icon">
   <link rel="stylesheet" href="./css/style.css">
   <script src="https://unpkg.com/scrollreveal"></script>
 </head>
@@ -20,7 +21,7 @@
           <ul>
             <li><a href="#sobre">Sobre</a></li>
             <li><a href="#projetos">Projetos</a></li>
-            <li><a href="#">Importância</a></li>
+            <li><a href="#importancia">Importância</a></li>
             <li><a href="./yeezy/yeezy.html">Yeezy</a></li>
             <li><a href="#">Quiz</a></li>
           </ul>
@@ -314,7 +315,22 @@
   <div class="importancia" id="importancia">
     <div class="box">
       <h1>Importância</h1>
-      <div class="conteudo"></div>
+      <div class="conteudo">
+        <div class="imgImp">
+          <img src="./assets/imgs/imgImp.jpg">
+        </div>
+        <div class="texto">
+          <p>
+            No começo de 2019, Kanye West apareceu na minha vida com a música "All Mine". Inicialmente, eu apenas a
+            achei uma música boa e não explorei muito além. Com o passar dos dias, mais músicas dele começaram a surgir
+            para mim, e foi aí que comecei a escutá-lo de verdade. No entanto, ainda não me considerava um grande fã
+            dele. No meio do ano, aconteceu um dos piores eventos da minha vida, e a única coisa que me tirava de uma
+            profunda tristeza era escutar as músicas de Kanye West. Comecei também a pesquisar mais sobre a história e a
+            carreira dele. Até hoje, em momentos difíceis da minha vida, eu sempre paro e vou escutar as músicas dele, e
+            isso se tornou uma terapia para mim.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -353,12 +369,12 @@
   let slideAtual = 0; // Índice do slide atual (começa em 0)
 
   function mostrarSlide(indice) {
-  slides.forEach(slide => slide.style.display = 'none');
-  slides[indice].style.display = 'flex';
-  slides[indice].classList.remove('slide-animation');
-  void slides[indice].offsetWidth; // Forçar o reflow
-  slides[indice].classList.add('slide-animation');
-}
+    slides.forEach(slide => slide.style.display = 'none');
+    slides[indice].style.display = 'flex';
+    slides[indice].classList.remove('slide-animation');
+    void slides[indice].offsetWidth; // Forçar o reflow
+    slides[indice].classList.add('slide-animation');
+  }
 
   mostrarSlide(slideAtual);
 
@@ -378,25 +394,25 @@
     mostrarSlide(slideAtual);
   });
 
-// Adicione este código JavaScript ao final do seu arquivo HTML, dentro da tag <script>
-  document.addEventListener("DOMContentLoaded", function() {
-  const links = document.querySelectorAll('.anchorNav ul li a');
+  // Adicione este código JavaScript ao final do seu arquivo HTML, dentro da tag <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll('.anchorNav ul li a');
 
-  links.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
+    links.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
 
-      const targetId = this.getAttribute('href').substring(1); // Obter o ID da seção de destino, excluindo o '#'
-      const targetSection = document.getElementById(targetId);
-      const offsetTop = targetSection.offsetTop; // Obter o deslocamento vertical da seção de destino
+        const targetId = this.getAttribute('href').substring(1); // Obter o ID da seção de destino, excluindo o '#'
+        const targetSection = document.getElementById(targetId);
+        const offsetTop = targetSection.offsetTop; // Obter o deslocamento vertical da seção de destino
 
-      window.scroll({
-        top: offsetTop,
-        behavior: 'smooth' // Rolagem suave
+        window.scroll({
+          top: offsetTop,
+          behavior: 'smooth' // Rolagem suave
+        });
       });
     });
   });
-});
 
 
 </script>

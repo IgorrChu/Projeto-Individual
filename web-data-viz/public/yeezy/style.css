@@ -102,19 +102,22 @@ nav .left .anchorNav {
     z-index: 2;
     font-size: 38px;
     font-weight: 800;
-    color: black; /* Definindo uma cor inicial para o texto */
+    color: transparent; /* Definindo uma cor inicial para o texto */
+    transition: 500ms;
 }
 
 .inicio .bannerHover:hover {
     color: white; /* Alterando a cor do texto durante o hover */
     background-color: black;
     opacity: 0.5;
+    font-size: 42px;
+    transition: 500ms;
 }
 
 .conteudo {
     position: absolute;
     margin-top: 38rem;
-    width: 100%;
+    width: 102%;
     height: fit-content;
     background-color: white;
     z-index: 3;
