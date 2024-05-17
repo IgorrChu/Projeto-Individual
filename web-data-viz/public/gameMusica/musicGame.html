@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="titulo">
+                <h1>Adivinhe a musica</h1>
+            </div>
+            <div class="conteudo">
+                <div class="musica" id="musicaA">
+                    <audio src="../assets/audio/JesusWalks.mp3"></audio>
+                </div>
+                <div class="btn" id="btn">
+                    <button onclick="iniciar()">Proxima</button>
+                </div>
+                <div class="resposta">
+                    <input type="text" id="inputResposta">
+                    <button onclick="tentativa()">></button>
+                </div>
+                <div class="tentativa" id="tentativaM">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script>
+    var listaSrcMusicas = [
+        '<audio controls="" style="width: 100px;"><source src = "../assets/audio/jesuswalks.mp3" type = "audio/mpeg" ></audio >',
+        '<audio controls="" style="width: 100px;"><source src="../assets/audio/addiction.mp3" type="audio/mpeg"></audio>',
+        '<audio controls="" style="width: 100px;"><source src="../assets/audio/flashinglights.mp3" type="audio/mpeg"></audio>',
+        '<audio controls="" style="width: 100px;"><source src="../assets/audio/paranoid.mp3" type="audio/mpeg"></audio>',
+        '<audio controls="" style="width: 100px;"><source src="../assets/audio/runaway.mp3" type="audio/mpeg"></audio>',
+        '<audio controls="" style="width: 100px;"><source src="../assets/audio/newslaves.mp3" type="audio/mpeg"></audio>',
+        '<audio controls="" style="width: 100px;"><source src="../assets/audio/wolves.mp3" type="audio/mpeg"></audio>',
+        '<audio controls="" style="width: 100px;"><source src="../assets/audio/violentcrimes.mp3" type="audio/mpeg"></audio>',
+        '<audio controls="" style="width: 100px;"><source src="../assets/audio/godis.mp3" type="audio/mpeg"></audio>',
+        '<audio controls="" style="width: 100px;"><source src="../assets/audio/believewhatisay.mp3" type="audio/mpeg"></audio>'];
+
+
+    var listaMusicas = ['Jesus Walks', 'Addiction', 'Flashing Lights', 'Paranoid', 'Runaway', 'New Slaves', 'Wolves', 'Violent Crimes', 'God Is', 'Believe What I Say'];
+    var iAtual = ''
+    function iniciar() {
+        tentativaM.innerHTML = ``
+        var iMusicaAtual = (Math.random() * (listaMusicas.length - 1)).toFixed();
+        musicaAtual = listaMusicas[iMusicaAtual];
+        musicaSrcAtual = listaSrcMusicas[iMusicaAtual];
+        if (iMusicaAtual - iAtual == 0) {
+            iMusicaAtual = (Math.random() * (listaMusicas.length - 1)).toFixed()
+            iAtual = musicaAtual
+            musicaA.innerHTML = `${musicaSrcAtual}`;
+        } else {
+            iAtual = musicaAtual
+            musicaA.innerHTML = `${musicaSrcAtual}`;
+        }
+        btn.style.display = 'none'
+    }
+    iniciar()
+    function tentativa() {
+        var resposta = inputResposta.value;
+        if (resposta != iAtual) {
+            tentativaM.innerHTML += `<div class="boxTentativa" style="background-color: red;"><p>${resposta}</p></div>`
+        } else {
+            tentativaM.innerHTML += `<div class="boxTentativa" style="background-color: green;"><p>${resposta}</p></div>`
+            btn.style.display = 'flex'
+        }
+    }
+
+</script>
+
+</html>
