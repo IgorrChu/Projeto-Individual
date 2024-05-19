@@ -15,7 +15,7 @@ body {
     overflow-x: hidden;
 }
 
-.containerInteiro{
+.containerInteiro {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -91,6 +91,7 @@ nav .left .anchorNav {
     width: 1354px;
     /* height: 720px; */
 }
+
 .inicio .bannerHover {
     width: 1354px;
     height: 547px;
@@ -102,12 +103,14 @@ nav .left .anchorNav {
     z-index: 2;
     font-size: 38px;
     font-weight: 800;
-    color: transparent; /* Definindo uma cor inicial para o texto */
+    color: transparent;
+    /* Definindo uma cor inicial para o texto */
     transition: 500ms;
 }
 
 .inicio .bannerHover:hover {
-    color: white; /* Alterando a cor do texto durante o hover */
+    color: white;
+    /* Alterando a cor do texto durante o hover */
     background-color: black;
     opacity: 0.5;
     font-size: 42px;
@@ -123,14 +126,14 @@ nav .left .anchorNav {
     z-index: 3;
 }
 
-.conteudo .titulo{
+.conteudo .titulo {
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 110px;
 }
 
-.conteudo .titulo h1{
+.conteudo .titulo h1 {
     margin: 0;
 }
 
@@ -140,10 +143,28 @@ nav .left .anchorNav {
     justify-content: center;
 }
 
-.conteudo .produtos{
+.conteudo .produtos {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row-reverse;
 }
 
+.onu .titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.onu .texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 395px;
+}
+
+.texto p {
+    width: 600px;
+}

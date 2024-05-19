@@ -1,8 +1,28 @@
+@font-face {
+    font-family: 'Neue Haas Unica';
+    src: local('Neue Haas Unica Medium'), local('Neue-Haas-Unica-Medium'),
+        url('../css/NeueHaasUnica-Medium.woff') format('woff'),
+        url('../css/NeueHaasUnica-Medium.woff2') format('woff2'),
+        url('../css/NeueHaasUnica-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
 body {
+    font-family: 'Neue Haas Unica';
+    background-image: url(../assets/imgs/fundoJogo.jpg);
+    background-size: cover;
     margin: 0;
     background-color: black;
 }
 
+h1 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
 
 .container {
     width: 100vw;
@@ -17,6 +37,12 @@ body {
     height: 85%;
     background-color: white;
     border-radius: 15px;
+    border: 2px solid black;
+}
+
+.container .box .btnBack {
+    margin-top: 15px;
+    margin-left: 5px;
 }
 
 .container .box .titulo {
@@ -39,8 +65,36 @@ body {
 
 .container .box .conteudo .resposta {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin-top: 15px;
+    align-items: center;
+}
+
+.container .box .conteudo .resposta div {
+    display: flex;
+}
+
+.container .box .conteudo .resposta div input {
+    width: 160px;
+    height: 20px;
+    border: 2px solid black;
+    border-radius: 15px 0px 0px 15px;
+}
+
+.container .box .conteudo .resposta div button {
+    height: 26px;
+    background-color: white;
+    border-radius: 0px 15px 15px 0px;
+    border-left: 0px;
+    transition: 500ms;
+    cursor: pointer;
+}
+
+.container .box .conteudo .resposta div button:hover{
+    color: white;
+    transition: 500ms;
+    background-color: black;
 }
 
 .container .box .conteudo .tentativa .boxTentativa {
@@ -60,4 +114,28 @@ body {
 .btn {
     display: flex;
     justify-content: center;
+    margin-top: 5px;
+}
+
+.btn button{
+    width: 160px;
+    height: 25px;
+    background-color: white;
+    border-radius: 15px;
+    transition: 500ms;
+    cursor: pointer;
+}
+
+.btn button:hover{
+    margin-top: 5px;
+    width: 165px;
+    height: 30px;
+    color: white;
+    transition: 500ms;
+    background-color: black;
+    border-radius: 15px;
+}
+
+iframe {
+    height: 90px;
 }

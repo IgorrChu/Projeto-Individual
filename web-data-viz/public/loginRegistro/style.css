@@ -8,6 +8,10 @@
     font-style: normal;
 }
 
+h1{
+    margin: 0;
+}
+
 body {
     font-family: 'Neue Haas Unica';
     margin: 0;
@@ -131,7 +135,7 @@ body {
 
 .containerR .boxRegistro {
     width: 400px;
-    height: 440px;
+    height: 460px;
     background-color: #FFF;
     border-radius: 15px;
     padding: 10px;

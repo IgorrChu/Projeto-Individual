@@ -42,6 +42,10 @@
         </div>
         <h1>registro.</h1>
         <div class="formsRegistro">
+          <div class="nome">
+            <p>nome.</p>
+            <input type="email" name="" id="inputNome">
+          </div>
           <div class="email">
             <p>email.</p>
             <input type="email" name="" id="inputEmail">
@@ -156,6 +160,7 @@
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
+    var nomeVar = inputNome.value;
     var emailVar = inputEmail.value;
     var senhaVar = inputSenha.value;
     var confirmacaoSenhaVar = inputConfSenha.value;
@@ -182,8 +187,9 @@
       body: JSON.stringify({
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
         emailServer: emailVar,
-        senhaServer: senhaVar,
+        senhaServer: senhaVar
       }),
     })
       .then(function (resposta) {
@@ -211,21 +217,6 @@
     return false;
   }
 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
 
 </script>
 

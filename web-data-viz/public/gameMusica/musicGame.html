@@ -11,10 +11,14 @@
 <body>
     <div class="container">
         <div class="box">
+            <div class="btnBack">
+                <a href="../index.html"><img src="../assets/imgs/iconAnt.png" width="40px" alt=""></a>
+            </div>
             <div class="titulo">
                 <h1>Adivinhe a musica</h1>
             </div>
             <div class="conteudo">
+                
                 <div class="musica" id="musicaA">
                     <audio src="../assets/audio/JesusWalks.mp3"></audio>
                 </div>
@@ -22,31 +26,34 @@
                     <button onclick="iniciar()">Proxima</button>
                 </div>
                 <div class="resposta">
-                    <input type="text" id="inputResposta">
-                    <button onclick="tentativa()">></button>
+                    <p>Escreva sua resposta:</p>
+                    <div>
+                        <input type="text" id="inputResposta">
+                        <button onclick="tentativa()">></button>
+                    </div>
                 </div>
                 <div class="tentativa" id="tentativaM">
                 </div>
             </div>
         </div>
     </div>
-    
+
 </body>
 <script>
     var listaSrcMusicas = [
-        '<audio controls="" style="width: 100px;"><source src = "../assets/audio/jesuswalks.mp3" type = "audio/mpeg" ></audio >',
-        '<audio controls="" style="width: 100px;"><source src="../assets/audio/addiction.mp3" type="audio/mpeg"></audio>',
-        '<audio controls="" style="width: 100px;"><source src="../assets/audio/flashinglights.mp3" type="audio/mpeg"></audio>',
-        '<audio controls="" style="width: 100px;"><source src="../assets/audio/paranoid.mp3" type="audio/mpeg"></audio>',
-        '<audio controls="" style="width: 100px;"><source src="../assets/audio/runaway.mp3" type="audio/mpeg"></audio>',
-        '<audio controls="" style="width: 100px;"><source src="../assets/audio/newslaves.mp3" type="audio/mpeg"></audio>',
-        '<audio controls="" style="width: 100px;"><source src="../assets/audio/wolves.mp3" type="audio/mpeg"></audio>',
-        '<audio controls="" style="width: 100px;"><source src="../assets/audio/violentcrimes.mp3" type="audio/mpeg"></audio>',
-        '<audio controls="" style="width: 100px;"><source src="../assets/audio/godis.mp3" type="audio/mpeg"></audio>',
-        '<audio controls="" style="width: 100px;"><source src="../assets/audio/believewhatisay.mp3" type="audio/mpeg"></audio>'];
+        '<iframe title="deezer-widget"src="https://widget.deezer.com/widget/dark/track/528869491?tracklist=false" width="210" height="150"frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>',
+        '<iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/track/1184316?tracklist=false" width="210" height="150" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>',
+        '<iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/track/630827302" width="210" height="150" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>',
+        '<iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/track/130412306" width="210" height="150" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>',
+        '<iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/track/7667065" width="210" height="150" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>',
+        '<iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/track/68350107" width="210" height="150" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>',
+        '<iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/track/126772753" width="210" height="150" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>',
+        '<iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/track/581609142" width="210" height="150" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>',
+        '<iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/track/785411522" width="210" height="150" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>',
+        '<iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/track/1506150412" width="210" height="150" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>'];
 
 
-    var listaMusicas = ['Jesus Walks', 'Addiction', 'Flashing Lights', 'Paranoid', 'Runaway', 'New Slaves', 'Wolves', 'Violent Crimes', 'God Is', 'Believe What I Say'];
+    var listaMusicas = ['jesus walks', 'addiction', 'flashing lights', 'paranoid', 'runaway', 'new slaves', 'wolves', 'violent crimes', 'god is', 'believe what i say'];
     var iAtual = ''
     function iniciar() {
         tentativaM.innerHTML = ``
