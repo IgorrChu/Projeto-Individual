@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/sessao.js"></script>
 </head>
 
 <body>
@@ -13,21 +15,41 @@
         <nav id="navbar">
             <div class="left">
                 <div class="logo">
-                    <a href="#home"><img src="../assets/imgs/logo.png" alt="Logo"></a>
+                    <a href=""><img src="../assets/imgs/logo.png" alt="Logo"></a>
                 </div>
-                    <ul>
-                        <li><a href="#sobre">Home</a></li>
-
-                    </ul>
-                </div>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                </ul>
+            </div>
             </div>
             <div class="right">
                 <ul>
-                    <li><p>Nome Usuario</p></li>
+                    <li>
+                        <p>Nome Usuario</p>
+                    </li>
+                    <li>
+                        <a href="../index.html" onclick="sair()">
+                            <p>Sair</p>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
     </header>
+
+    <div class="container">
+        <div class="titulo">
+            <h1>Dashboard</h1>
+        </div>
+        <div class="box">
+
+        </div>
+    </div>
 </body>
+<script>
+    function sair() {
+        sessionStorage.clear();
+    }
+</script>
 
 </html>

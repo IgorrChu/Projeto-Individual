@@ -47,6 +47,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 3px solid black;
 }
 
 nav ul {
@@ -72,4 +73,22 @@ nav .left {
 
 nav .left .anchorNav {
     width: 385px;
+}
+
+.container {
+    margin-left: 15px;
+    margin-top: 78px;
+    width: 80%;
+    height: 88vh;
+}
+
+.container h1{
+    margin: 0;
+}
+
+.container .box {
+    width: 95%;
+    height: 75%;
+    border: 3px solid black;
+    border-radius: 15px;
 }
