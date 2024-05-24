@@ -1,5 +1,16 @@
 var quizModel = require("../models/quizModel");
 
+function listar(req, res) {
+
+    quizModel.listar().then(function (resultado) {
+        res.status(200).json(resultado);
+    }).catch(function (erro) {
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
+
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var certo = req.body.certoServer;
@@ -53,5 +64,6 @@ function cadastrarJogo(req, res) {
 
 module.exports = {
     cadastrar,
+    listar,
     cadastrarJogo
 }

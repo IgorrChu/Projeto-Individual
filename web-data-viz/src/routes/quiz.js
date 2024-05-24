@@ -12,4 +12,8 @@ router.post("/cadastrarJogo", function (req, res) {
     quizController.cadastrarJogo(req, res);
 })
 
+router.get("/listar", function (req, res) {
+    quizController.listar(req, res);
+})
+
 module.exports = router;

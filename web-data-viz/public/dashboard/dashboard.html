@@ -10,7 +10,7 @@
     <script src="../js/sessao.js"></script>
 </head>
 
-<body>
+<body onload="listar()">
     <header>
         <nav id="navbar">
             <div class="left">
@@ -46,6 +46,7 @@
     </header>
 
     <div class="container">
+        <div class="boxGraphs">
         <div class="titulo">
             <h1>Dashboard</h1>
         </div>
@@ -53,6 +54,28 @@
 
         </div>
     </div>
+    <div class="boxKpi">
+        <div class="rankingJogo">
+            <div class="leaderboard">
+                <div class="pontuacao">
+                    <div class="nome">
+                        <p>nome</p>
+                    </div>
+                    <div class="acertos">
+                        <p>acertos</p>
+                    </div>
+                    <div class="erros">
+                        <p>erros</p>
+                    </div>
+                </div>         
+                <div class="jogador" id="jogadores">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
 </body>
 <script>
 
@@ -71,6 +94,23 @@
     function sair() {
         sessionStorage.clear();
     }
+
+    function listar() {
+    fetch(`/quiz/listar`, {
+        method: "GET",
+    })
+        .then(function (resposta) {
+            resposta.json().then((resposta) => {
+                resposta.forEach((jogador) => {
+                    jogadores.innerHTML += `<div class="pontuacao"><div class="nome"><p>${jogador.nomeUsuario}</p></div><div class="acertos"><p>${jogador.acertos}</p></div><div class="erros"><p>${jogador.erros}</p></div></div>`;
+                });
+            });
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
 </script>
 
 </html>
