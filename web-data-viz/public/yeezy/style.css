@@ -71,7 +71,7 @@ nav .left {
 }
 
 nav .left .anchorNav {
-    width: 385px;
+    width: 450px;
 }
 
 .inicio {
@@ -167,4 +167,14 @@ nav .left .anchorNav {
 
 .texto p {
     width: 600px;
+}
+
+.content{
+    margin-top: 70px;
+    width: 100vw;
+    height: 100vh;
+}
+
+.conteudo button{
+    width: 150px;
 }

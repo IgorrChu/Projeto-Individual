@@ -9,7 +9,23 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" id="noLogin">
+        <div class="box">
+            <div class="btnBack">
+                <a href="../index.html"><img src="../assets/imgs/iconAnt.png" width="40px" alt=""></a>
+            </div>
+            <div class="content">
+                <div class="titulo">
+                    <h1>Faça login para fazer o quiz</h1>
+                </div>
+                <div class="btnLogin">
+                    <a href="../loginRegistro/loginRegistro.html"><button>Login</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="inicio">
         <div class="box">
             <div class="btnBack">
                 <a href="../index.html"><img src="../assets/imgs/iconAnt.png" width="40px" alt=""></a>
@@ -18,19 +34,22 @@
                 <h1>Adivinhe a musica</h1>
             </div>
             <div class="conteudo">
-                
+
                 <div class="musica" id="musicaA">
                     <audio src="../assets/audio/JesusWalks.mp3"></audio>
                 </div>
                 <div class="btn" id="btn">
                     <button onclick="iniciar()">Proxima</button>
                 </div>
-                <div class="resposta">
+                <div class="resposta" id="resposta">
                     <p>Escreva sua resposta:</p>
                     <div>
                         <input type="text" id="inputResposta">
                         <button onclick="tentativa()">></button>
                     </div>
+                </div>
+                <div class="fimJogo" id="fimJogo" style="display: none;">
+                    <button onclick="cadastrar()">ir para home</button>
                 </div>
                 <div class="tentativa" id="tentativaM">
                 </div>
@@ -40,6 +59,20 @@
 
 </body>
 <script>
+
+    function verificar() {
+        var idUsuario = sessionStorage.ID_USUARIO;
+
+        if (idUsuario >= 0) {
+            inicio.style.display = 'flex'
+            noLogin.style.display = 'none'
+        } else {
+            inicio.style.display = 'none'
+            noLogin.style.display = 'flex'
+        }
+    }
+    verificar()
+
     var listaSrcMusicas = [
         '<iframe title="deezer-widget"src="https://widget.deezer.com/widget/dark/track/528869491?tracklist=false" width="210" height="150"frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>',
         '<iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/track/1184316?tracklist=false" width="210" height="150" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>',
@@ -54,33 +87,83 @@
 
 
     var listaMusicas = ['jesus walks', 'addiction', 'flashing lights', 'paranoid', 'runaway', 'new slaves', 'wolves', 'violent crimes', 'god is', 'believe what i say'];
-    var iAtual = ''
+    var iAtual = '';
+    var listaMusicaChck = [];
+    var acertosVar = 0;
+    var errosVar = 0;
+
     function iniciar() {
-        tentativaM.innerHTML = ``
-        var iMusicaAtual = (Math.random() * (listaMusicas.length - 1)).toFixed();
-        musicaAtual = listaMusicas[iMusicaAtual];
-        musicaSrcAtual = listaSrcMusicas[iMusicaAtual];
-        if (iMusicaAtual - iAtual == 0) {
-            iMusicaAtual = (Math.random() * (listaMusicas.length - 1)).toFixed()
-            iAtual = musicaAtual
-            musicaA.innerHTML = `${musicaSrcAtual}`;
+        tentativaM.innerHTML = ``;
+        if (listaMusicaChck.length < listaMusicas.length) {
+            var iMusicaAtual = (Math.random() * (listaMusicas.length - 1)).toFixed();
+
+            if (listaMusicaChck.indexOf(iMusicaAtual) == -1) {
+                listaMusicaChck.push(iMusicaAtual);
+                musicaAtual = listaMusicas[iMusicaAtual];
+                musicaSrcAtual = listaSrcMusicas[iMusicaAtual];
+                iAtual = musicaAtual;
+                musicaA.innerHTML = `${musicaSrcAtual}`;
+            } else {
+                iniciar();
+            }
+            btn.style.display = 'none';
         } else {
-            iAtual = musicaAtual
-            musicaA.innerHTML = `${musicaSrcAtual}`;
+            musicaA.innerHTML = `Fim de Jogo<br>
+        você completou com<br>
+        acertos: ${acertosVar}<br>
+        erros: ${errosVar}<br>`;
+            btn.style.display = 'none';
+            resposta.style.display = 'none';
+            fimJogo.style.display = 'block';
         }
-        btn.style.display = 'none'
     }
     iniciar()
     function tentativa() {
         var resposta = inputResposta.value;
         if (resposta != iAtual) {
             tentativaM.innerHTML += `<div class="boxTentativa" style="background-color: red;"><p>${resposta}</p></div>`
+            errosVar++
+            inputResposta.value = ''
         } else {
             tentativaM.innerHTML += `<div class="boxTentativa" style="background-color: green;"><p>${resposta}</p></div>`
             btn.style.display = 'flex'
+            acertosVar++
+            inputResposta.value = ''
         }
     }
 
+    function cadastrar() {
+        // Enviando o valor da nova input
+        fkUsuarioVar = sessionStorage.ID_USUARIO;
+        fetch("/quiz/cadastrarJogo", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                certoServer: acertosVar,
+                erradoServer: errosVar,
+                fkUsuarioServer: fkUsuarioVar
+
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                        window.location = "../index.html";
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+        return false;
+    }
 </script>
 
 </html>

@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="./js/sessao.js"></script>
 </head>
 
 <body>
@@ -25,6 +26,7 @@
             <li><a href="#importancia">Importância</a></li>
             <li><a href="./yeezy/yeezy.html">Yeezy</a></li>
             <li><a href="./gameMusica/musicGame.html">Jogo</a></li>
+            <li><a href="./quiz/quizKanye.html">Quiz</a></li>
           </ul>
         </div>
       </div>
@@ -407,24 +409,24 @@
   });
 
   // Adicione este código JavaScript ao final do seu arquivo HTML, dentro da tag <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const links = document.querySelectorAll('.anchorNav ul li a');
+  // document.addEventListener("DOMContentLoaded", function () {
+  //   const links = document.querySelectorAll('.anchorNav ul li a');
 
-    links.forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
+  //   links.forEach(link => {
+  //     link.addEventListener('click', function (e) {
+  //       e.preventDefault();
 
-        const targetId = this.getAttribute('href').substring(1); // Obter o ID da seção de destino, excluindo o '#'
-        const targetSection = document.getElementById(targetId);
-        const offsetTop = targetSection.offsetTop; // Obter o deslocamento vertical da seção de destino
+  //       const targetId = this.getAttribute('href').substring(1); // Obter o ID da seção de destino, excluindo o '#'
+  //       const targetSection = document.getElementById(targetId);
+  //       const offsetTop = targetSection.offsetTop; // Obter o deslocamento vertical da seção de destino
 
-        window.scroll({
-          top: offsetTop,
-          behavior: 'smooth' // Rolagem suave
-        });
-      });
-    });
-  });
+  //       window.scroll({
+  //         top: offsetTop,
+  //         behavior: 'smooth' // Rolagem suave
+  //       });
+  //     });
+  //   });
+  // });
 
 
 </script>

@@ -164,19 +164,6 @@
     var emailVar = inputEmail.value;
     var senhaVar = inputSenha.value;
     var confirmacaoSenhaVar = inputConfSenha.value;
-    // if (
-    //   emailVar == "" ||
-    //   senhaVar == "" ||
-    //   confirmacaoSenhaVar == ""
-    // ) {
-    //   cardErro.style.display = "block";
-    //   mensagem_erro.innerHTML =
-    //     "(Mensagem de erro para todos os campos em branco)";
-
-    //   return false;
-    // } else {
-    //   setInterval(sumirMensagem, 5000);
-    // }
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -196,15 +183,10 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          // cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
           setTimeout(() => {
             window.location = "loginRegistro.html";
           }, "2000");
-
+         
           limparFormulario();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
