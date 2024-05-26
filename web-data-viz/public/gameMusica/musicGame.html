@@ -43,13 +43,13 @@
                 </div>
                 <div class="resposta" id="resposta">
                     <p>Escreva sua resposta:</p>
-                    <div>
+                    <div id="tentativas">
                         <input type="text" id="inputResposta">
                         <button onclick="tentativa()">></button>
                     </div>
                 </div>
                 <div class="fimJogo" id="fimJogo" style="display: none;">
-                    <button onclick="cadastrar()">ir para home</button>
+                    <a href="../index.html"><button>ir para home</button></a>
                 </div>
                 <div class="tentativa" id="tentativaM">
                 </div>
@@ -91,9 +91,12 @@
     var listaMusicaChck = [];
     var acertosVar = 0;
     var errosVar = 0;
+    var errosAtual = 0;
 
     function iniciar() {
         tentativaM.innerHTML = ``;
+        tentativas.style.display = 'flex'
+
         if (listaMusicaChck.length < listaMusicas.length) {
             var iMusicaAtual = (Math.random() * (listaMusicas.length - 1)).toFixed();
 
@@ -114,7 +117,8 @@
         erros: ${errosVar}<br>`;
             btn.style.display = 'none';
             resposta.style.display = 'none';
-            fimJogo.style.display = 'block';
+            fimJogo.style.display = 'flex';
+            cadastrar()
         }
     }
     iniciar()
@@ -122,12 +126,20 @@
         var resposta = inputResposta.value;
         if (resposta != iAtual) {
             tentativaM.innerHTML += `<div class="boxTentativa" style="background-color: red;"><p>${resposta}</p></div>`
-            errosVar++
+            errosAtual++
+            if (errosAtual == 5) {
+                btn.style.display = 'flex'
+                tentativas.style.display = 'none'
+                errosVar += errosAtual
+                errosAtual = 0
+            }
             inputResposta.value = ''
         } else {
             tentativaM.innerHTML += `<div class="boxTentativa" style="background-color: green;"><p>${resposta}</p></div>`
             btn.style.display = 'flex'
             acertosVar++
+            errosVar += errosAtual
+            errosAtual = 0
             inputResposta.value = ''
         }
     }
@@ -152,11 +164,6 @@
             .then(function (resposta) {
                 console.log("resposta: ", resposta);
 
-                if (resposta.ok) {
-                        window.location = "../index.html";
-                } else {
-                    throw "Houve um erro ao tentar realizar o cadastro!";
-                }
             })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);

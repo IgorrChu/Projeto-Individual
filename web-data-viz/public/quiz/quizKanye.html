@@ -66,7 +66,7 @@
         <div id="respostas"></div>
         <div id="fim"></div>
         <div class="btnHome" id="finalizar" style="display: none;">
-            <button onclick="cadastrar()">Voltar para Home</button>
+            <a href="../index.html"><button>Voltar para Home</button></a>
         </div>
 
     </div>
@@ -77,7 +77,7 @@
         var idUsuario = sessionStorage.ID_USUARIO;
 
         if (idUsuario >= 0) {
-            direita.innerHTML = `<ul><li><a href="./dashboard/dashboard.html">Dashboard</a></li></ul>`
+            direita.innerHTML = `<ul><li><a href="../dashboard/dashboard.html">Dashboard</a></li></ul>`
             inicio.style.display = 'flex'
             noLogin.style.display = 'none'
         } else {
@@ -162,9 +162,10 @@
                     displaypergunta();
                 } else {
                     perguntaElement.textContent = "Fim do quiz!";
-                    respostas.innerHTML = ''
-                    fim.innerHTML += `Você acertou: ${certoVar} e errou: ${erradoVar}`
-                    finalizar.style.display = 'flex'
+                    respostas.innerHTML = '';
+                    fim.innerHTML += `Você acertou: ${certoVar} e errou: ${erradoVar}`;
+                    finalizar.style.display = 'flex';
+                    cadastrar();
                 }
             };
             respostasElement.appendChild(button);
@@ -190,19 +191,6 @@
 
             }),
         })
-            .then(function (resposta) {
-                console.log("resposta: ", resposta);
-
-                if (resposta.ok) {
-                    setTimeout(() => {
-                        window.location = "loginRegistro.html";
-                    }, "2000");
-
-                    limparFormulario();
-                } else {
-                    throw "Houve um erro ao tentar realizar o cadastro!";
-                }
-            })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
