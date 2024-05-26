@@ -26,5 +26,7 @@ fkUsuario int,
 foreign key (fkUsuario) references usuario(idUsuario)
 );
 
-select * from jogo order by erros asc;
+select * from usuario join quiz on idUsuario = fkUsuario;
+
+select * from usuario join jogo on idUsuario = fkUsuario order by erros asc;
 select * from quiz;
